@@ -24,24 +24,24 @@ const PublicProfileView = () => {
 
     async function getProfile() {
       const username = params.username;
-      console.log(username);
+      // console.log(username);
 
       try {
         const userUid = await existsUsername(username);
-        console.log(userUid);
+        // console.log(userUid);
 
         if (userUid) {
           const userInfo = await getUserPublicProfileInfo(userUid);
-          console.log(userInfo);
+          // console.log(userInfo);
           setProfile(userInfo);
 
-          console.log(userInfo.profileInfo.profilePicture);
+          // console.log(userInfo.profileInfo.profilePicture);
 
           const url = await getProfilePhotoUrl(
             userInfo.profileInfo.profilePicture
           );
 
-          console.log(url);
+          // console.log(url);
           setUrl(url);
         }else{
           setState(7)
@@ -57,8 +57,8 @@ const PublicProfileView = () => {
     </div>
   }
 
-  console.log(profile);
-  console.log(url);
+  // console.log(profile);
+  // console.log(url);
 
   return (
     <div>

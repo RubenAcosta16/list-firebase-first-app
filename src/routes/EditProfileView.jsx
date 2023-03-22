@@ -105,7 +105,7 @@ const EditProfileView = () => {
         <h2>Edit Profile Info</h2>
         <div>
           <div>
-            <img src={profileUrl} alt="" width={100} />
+            <img src={profileUrl} alt="" width={300} />
           </div>
           {/* desmadre para elegir la imagen */}
           <div>

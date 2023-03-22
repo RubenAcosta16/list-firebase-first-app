@@ -99,14 +99,14 @@ const DashBoarfView = () => {
   }
 
   async function handleUpdateLink(docId, title, url) {
-    console.log(docId,title,url)
-    console.log(links)
+    // console.log(docId,title,url)
+    // console.log(links)
     const link = links.find((item) => item.docId === docId);
     console.log(link)
     link.title = title;
     link.url = url;
 
-    console.log(link)
+    // console.log(link)
 
     await uptdatelink(docId, link);
   }
