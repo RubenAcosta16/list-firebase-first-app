@@ -60,6 +60,8 @@ const Link = ({ docId, title, url, onDelete, onUpdate }) => {
   }
   // console.log(docId, title)
 
+  // console.log(docId)
+
   return (
     <div>
       <div>

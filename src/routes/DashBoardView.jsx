@@ -104,6 +104,8 @@ const DashBoarfView = () => {
 
     await uptdatelink(docId, link);
   }
+
+  console.log(links[0]?.docId)
  
   return (
     <DashBoardWrapper>
@@ -120,12 +122,14 @@ const DashBoarfView = () => {
           <input type="submit" value="Create new link" />
         </form>
 
+
+
         <div>
-          {links.map((link) => (
+          {links?.map((link) => (
             // <div key={link.id}><a href={link.url}>{link.title}</a></div>
             <Link
-              key={link.docId}
-              docId={link.docId}
+              key={uuidv4()}
+              docId={uuidv4()}
               url={link.url}
               title={link.title}
               onDelete={handleDeleteLink}
