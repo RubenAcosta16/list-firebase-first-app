@@ -91,6 +91,7 @@ const DashBoarfView = () => {
   }
 
   async function handleDeleteLink(docId) {
+    // console.log("de")
     await deleteLink(docId);
     const tmp = links.filter((link) => link.docId !== docId);
 
@@ -98,14 +99,19 @@ const DashBoarfView = () => {
   }
 
   async function handleUpdateLink(docId, title, url) {
+    console.log(docId,title,url)
+    console.log(links)
     const link = links.find((item) => item.docId === docId);
+    console.log(link)
     link.title = title;
     link.url = url;
+
+    console.log(link)
 
     await uptdatelink(docId, link);
   }
 
-  console.log(links[0]?.docId)
+  // console.log(links[0]?.docId)
  
   return (
     <DashBoardWrapper>
@@ -128,8 +134,8 @@ const DashBoarfView = () => {
           {links?.map((link) => (
             // <div key={link.id}><a href={link.url}>{link.title}</a></div>
             <Link
-              key={uuidv4()}
-              docId={uuidv4()}
+              key={link.docId}
+              docId={link.docId}
               url={link.url}
               title={link.title}
               onDelete={handleDeleteLink}

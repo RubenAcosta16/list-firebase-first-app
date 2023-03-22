@@ -27,3 +27,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </BrowserRouter>
 );
 
+// Para solucionar lo de las rutas de react router cree un archivo _redirects en la carpeta public que lo soluciona todo

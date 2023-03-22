@@ -246,6 +246,7 @@ export async function uptdatelink(docId, link) {
 
 export async function deleteLink(docId) {
   try {
+    // console.log(docId)
     const docRef = doc(db, "links", docId);
     const res = await deleteDoc(docRef);
     return res;
@@ -278,6 +279,7 @@ export async function getProfilePhotoUrl(profilePicture) {
 }
 
 export async function getUserPublicProfileInfo(uid) {
+try {
   const profileInfo = await getUserInfo(uid);
 
   const linksInfo = await getLinks(uid);
@@ -286,6 +288,9 @@ export async function getUserPublicProfileInfo(uid) {
     profileInfo: profileInfo,
     linksInfo: linksInfo,
   };
+} catch (error) {
+  console.log(error)
+}
 }
 
 export async function logout() {
