@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 import AuthProvider from "../components/authProvider";
-import DashBoardWrapper from "../components/dashBoardWrapper";
+import DashBoardWrapper from "../components/dashboardWrapper";
 
 import {
   getLinks,
