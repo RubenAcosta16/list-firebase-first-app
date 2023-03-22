@@ -170,7 +170,7 @@ const LoginView = () => {
     async function signInWithGoogle(googleProvider) {
       try {
         const res = await signInWithPopup(auth, googleProvider);
-        console.log(res);
+        // console.log(res);
       } catch (error) {
         console.log(error);
       }
