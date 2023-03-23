@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 // import style from "./dashboardWrapper.module.css";
+import style from './css/dashBoardWrapper.module.css'
 
 export default function dashboardWrapper({ children }) {
   return (
     <div>
-      <nav>
-        <div>Logotipo</div>
+      <nav className={style.nav}>
+        <div className={style.logo}>Logotipo</div>
         <Link to="/dashboard">Links</Link>
 
         <Link to="/dashboard/profile">Profile</Link>

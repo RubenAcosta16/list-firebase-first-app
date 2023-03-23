@@ -18,7 +18,7 @@ const EditProfileView = () => {
   const fileRef = useRef();
 
   async function handleUserLoggedIn(user) {
-    console.log(user);
+    // console.log(user);
     // console.log(user)
     // navigate("/dashboard");
     setcurrentUser(user);
@@ -31,7 +31,7 @@ const EditProfileView = () => {
   }
   // console.log(currentUser)
 
-  function handleUserNotRegistered(user) {
+  function handleUserNotRegistered() {
     navigate("/login");
     // setcurrentUser(user);
     // setState(3);
@@ -104,6 +104,8 @@ const EditProfileView = () => {
       <div>
         <h2>Edit Profile Info</h2>
         <div>
+          <div>{currentUser.userName}</div>
+
           <div>
             <img src={profileUrl} alt="" width={300} />
           </div>

@@ -27,6 +27,8 @@ import { useNavigate } from "react-router-dom";
 
 import AuthProvider from "../components/authProvider";
 
+import style from "./css/loginView.module.css";
+
 const LoginView = () => {
   // // pa redirigir
   // const navigate = useNavigate();
@@ -203,8 +205,9 @@ const LoginView = () => {
 
   if (state === 4) {
     return (
-      <div>
-        <button onClick={handleOnClick}>Login with Google</button>
+      <div className={style.loginView}>
+        <h1>Link Tree</h1>
+        <button className={style.provider} onClick={handleOnClick}>Login with Google</button>
       </div>
     );
   }

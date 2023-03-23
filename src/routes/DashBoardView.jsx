@@ -15,6 +15,9 @@ import {
 
 import Link from "../components/Link";
 
+import style from './css/dashBoardView.module.css'
+import styleLinks from '../components/css/link.module.css'
+
 const DashBoarfView = () => {
   const navigate = useNavigate();
 
@@ -118,19 +121,19 @@ const DashBoarfView = () => {
       <div>
         <h1>Dashboard</h1>
 
-        <form action="" onSubmit={handleOnSubmit}>
+        <form className={style.entryContainer} action="" onSubmit={handleOnSubmit}>
           <label htmlFor="title">Title</label>
-          <input type="text" name="title" onChange={handleOnChange} />
+          <input className="input" type="text" name="title" onChange={handleOnChange} />
 
           <label htmlFor="url">Url</label>
-          <input type="text" name="url" onChange={handleOnChange} />
+          <input className="input" type="text" name="url" onChange={handleOnChange} />
 
-          <input type="submit" value="Create new link" />
+          <input className="btn" type="submit" value="Create new link" />
         </form>
 
 
 
-        <div>
+        <div className={styleLinks.linksContainer}>
           {links?.map((link) => (
             // <div key={link.id}><a href={link.url}>{link.title}</a></div>
             <Link
