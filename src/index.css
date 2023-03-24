@@ -51,6 +51,7 @@ code {
   color: white;
   padding: 15px 15px;
   border-radius: 3px;
+  min-width: 200px;
 }
 
 .main-container input[type="text"] {

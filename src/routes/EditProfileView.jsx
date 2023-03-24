@@ -10,6 +10,8 @@ import {
   updateUser,
 } from "../firebase/firebase";
 
+import style from './css/editProfileView.module.css'
+
 const EditProfileView = () => {
   const navigate = useNavigate();
   const [currentUser, setcurrentUser] = useState({});
@@ -103,15 +105,15 @@ const EditProfileView = () => {
     <DashBoardWrapper>
       <div>
         <h2>Edit Profile Info</h2>
-        <div>
-          <div>{currentUser.userName}</div>
+          <h2>{currentUser.userName}</h2>
+        <div className={style.profilePictureContainer}>
 
           <div>
             <img src={profileUrl} alt="" width={300} />
           </div>
           {/* desmadre para elegir la imagen */}
           <div>
-            <button onClick={handleOpenFilePicker}>
+            <button className="btn" onClick={handleOpenFilePicker}>
               Choose new profile picture
             </button>
             <input

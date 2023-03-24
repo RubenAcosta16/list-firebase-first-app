@@ -10,6 +10,9 @@ import {
 
 import PublicLink from '../components/publicLink'
 
+import style from './css/publicProfileView.module.css'
+import styleLinks from '../components/css/publicLink.module.css'
+
 const PublicProfileView = () => {
   const params = useParams();
 
@@ -61,13 +64,13 @@ const PublicProfileView = () => {
   // console.log(url);
 
   return (
-    <div>
-      <div>
+    <div className={style.profileContainer}>
+      <div className={style.profilePicture}>
         <img src={url} alt="" width={300} />
       </div>
       <h2>{profile?.profileInfo?.userName}</h2>
       <h3>{profile?.profileInfo?.displayName}</h3>
-      <div>
+      <div className={styleLinks.publicLinksContainer}>
         {profile?.linksInfo.map((link) => (
           <PublicLink key={link.docId} title={link.title} url={link.url}></PublicLink>
         ))}
