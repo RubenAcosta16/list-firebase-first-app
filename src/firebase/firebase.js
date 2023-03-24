@@ -297,3 +297,21 @@ export async function getUserPublicProfileInfo(uid) {
 export async function logout() {
   await auth.signOut();
 }
+
+
+export async function fetchLinkData(uid) {
+  const links = [];
+  const q = query(collection(db, "links"), where("uid", "==", uid));
+
+  const querySnapshot = await getDocs(q);
+
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    const link = { ...doc.data() };
+    link.docId = doc.id;
+    //console.log(doc.id, " => ", doc.data());
+    console.log(link);
+    links.push(link);
+  });
+  return links;
+}
