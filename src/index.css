@@ -52,6 +52,8 @@ code {
   padding: 15px 15px;
   border-radius: 3px;
   min-width: 200px;
+
+  cursor: pointer;
 }
 
 .main-container input[type="text"] {

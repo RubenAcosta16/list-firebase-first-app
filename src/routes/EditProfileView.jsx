@@ -10,7 +10,9 @@ import {
   updateUser,
 } from "../firebase/firebase";
 
-import style from './css/editProfileView.module.css'
+import { Link } from "react-router-dom";
+
+import style from "./css/editProfileView.module.css";
 
 const EditProfileView = () => {
   const navigate = useNavigate();
@@ -105,9 +107,9 @@ const EditProfileView = () => {
     <DashBoardWrapper>
       <div>
         <h2>Edit Profile Info</h2>
-          <h2>{currentUser.userName}</h2>
+        <Link to={`/u/${currentUser.userName}`}>Public Profile</Link>
+        <h2>{currentUser.userName}</h2>
         <div className={style.profilePictureContainer}>
-
           <div>
             <img src={profileUrl} alt="" width={300} />
           </div>

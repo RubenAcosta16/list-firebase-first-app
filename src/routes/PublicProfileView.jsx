@@ -8,10 +8,12 @@ import {
   getUserPublicProfileInfo,
 } from "../firebase/firebase";
 
-import PublicLink from '../components/publicLink'
+import PublicLink from "../components/publicLink";
 
-import style from './css/publicProfileView.module.css'
-import styleLinks from '../components/css/publicLink.module.css'
+import style from "./css/publicProfileView.module.css";
+import styleLinks from "../components/css/publicLink.module.css";
+
+import { Link } from "react-router-dom";
 
 const PublicProfileView = () => {
   const params = useParams();
@@ -20,7 +22,7 @@ const PublicProfileView = () => {
 
   const [url, setUrl] = useState("");
 
-  const [state, setState] = useState(0)
+  const [state, setState] = useState(0);
 
   useEffect(() => {
     getProfile();
@@ -46,18 +48,19 @@ const PublicProfileView = () => {
 
           // console.log(url);
           setUrl(url);
-        }else{
-          setState(7)
+        } else {
+          setState(7);
         }
       } catch (error) {}
     }
   }, [params]);
 
-
-  if(state===7){
-    return <div>
-      <h1>Username "{params.username}" no existe</h1>
-    </div>
+  if (state === 7) {
+    return (
+      <div>
+        <h1>Username "{params.username}" no existe</h1>
+      </div>
+    );
   }
 
   // console.log(profile);
@@ -65,6 +68,7 @@ const PublicProfileView = () => {
 
   return (
     <div className={style.profileContainer}>
+      <Link to="/dashboard/profile">Go to Links App</Link>
       <div className={style.profilePicture}>
         <img src={url} alt="" width={300} />
       </div>
@@ -72,7 +76,11 @@ const PublicProfileView = () => {
       <h3>{profile?.profileInfo?.displayName}</h3>
       <div className={styleLinks.publicLinksContainer}>
         {profile?.linksInfo.map((link) => (
-          <PublicLink key={link.docId} title={link.title} url={link.url}></PublicLink>
+          <PublicLink
+            key={link.docId}
+            title={link.title}
+            url={link.url}
+          ></PublicLink>
         ))}
       </div>
     </div>

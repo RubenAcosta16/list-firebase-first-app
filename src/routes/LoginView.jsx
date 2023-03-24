@@ -207,7 +207,9 @@ const LoginView = () => {
     return (
       <div className={style.loginView}>
         <h1>Link Tree</h1>
-        <button className={style.provider} onClick={handleOnClick}>Login with Google</button>
+        <button className={style.provider} onClick={handleOnClick}>
+          Login with Google
+        </button>
       </div>
     );
   }

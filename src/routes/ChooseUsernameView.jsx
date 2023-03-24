@@ -9,7 +9,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { existsUsername, updateUser } from "../firebase/firebase";
 
-import style from './css/choose-username.module.css'
+import style from "./css/choose-username.module.css";
 
 const ChooseUsernameView = () => {
   // const navigate = useNavigate();
@@ -131,7 +131,9 @@ const ChooseUsernameView = () => {
           <input type="text" className="input" onChange={handleInputUserName} />
         </div>
         <div>
-          <button className="btn" onClick={handleContinue}>Continuar</button>
+          <button className="btn" onClick={handleContinue}>
+            Continuar
+          </button>
         </div>
       </div>
     );

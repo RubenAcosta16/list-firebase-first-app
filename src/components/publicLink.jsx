@@ -1,12 +1,10 @@
-import style from './css/publicLink.module.css'
+import style from "./css/publicLink.module.css";
 
-const publicLink = ({url,title}) => {
+const publicLink = ({ url, title }) => {
   return (
-
-      <a href={url} className={style.publicLinkContainer} target="_blank">
-        <div>{title}</div>
-      </a>
-
+    <a href={url} className={style.publicLinkContainer} target="_blank">
+      <div>{title}</div>
+    </a>
   );
 };
 

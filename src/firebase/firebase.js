@@ -206,6 +206,7 @@ export async function insertNewLink(link) {
     const docRef = collection(db, "links");
     // creo que envia los datos
     const res = await addDoc(docRef, link);
+    console.log(res)
     return res;
   } catch (error) {
     console.log(error);
@@ -279,21 +280,20 @@ export async function getProfilePhotoUrl(profilePicture) {
 }
 
 export async function getUserPublicProfileInfo(uid) {
-try {
-  const profileInfo = await getUserInfo(uid);
+  try {
+    const profileInfo = await getUserInfo(uid);
 
-  const linksInfo = await getLinks(uid);
+    const linksInfo = await getLinks(uid);
 
-  return {
-    profileInfo: profileInfo,
-    linksInfo: linksInfo,
-  };
-} catch (error) {
-  console.log(error)
-}
+    return {
+      profileInfo: profileInfo,
+      linksInfo: linksInfo,
+    };
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function logout() {
   await auth.signOut();
 }
-

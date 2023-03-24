@@ -15,8 +15,8 @@ import {
 
 import Link from "../components/Link";
 
-import style from './css/dashBoardView.module.css'
-import styleLinks from '../components/css/link.module.css'
+import style from "./css/dashBoardView.module.css";
+import styleLinks from "../components/css/link.module.css";
 
 const DashBoarfView = () => {
   const navigate = useNavigate();
@@ -36,8 +36,11 @@ const DashBoarfView = () => {
 
     const resLinks = await getLinks(user.uid);
 
+    console.log(resLinks)
+
     setLinks([...resLinks]);
   }
+  console.log(links)
   // console.log(currentUser)
   function handleUserNotRegistered(user) {
     navigate("/login");
@@ -105,39 +108,52 @@ const DashBoarfView = () => {
     // console.log(docId,title,url)
     // console.log(links)
     const link = links.find((item) => item.docId === docId);
-    console.log(link)
+    console.log(link);
     link.title = title;
     link.url = url;
 
-    // console.log(link)
+    console.log(link)
 
     await uptdatelink(docId, link);
   }
 
   // console.log(links[0]?.docId)
- 
+
+  console.log(links.docId)
   return (
     <DashBoardWrapper>
       <div>
         <h1>Dashboard</h1>
 
-        <form className={style.entryContainer} action="" onSubmit={handleOnSubmit}>
+        <form
+          className={style.entryContainer}
+          action=""
+          onSubmit={handleOnSubmit}
+        >
           <label htmlFor="title">Title</label>
-          <input className="input" type="text" name="title" onChange={handleOnChange} />
+          <input
+            className="input"
+            type="text"
+            name="title"
+            onChange={handleOnChange}
+          />
 
           <label htmlFor="url">Url</label>
-          <input className="input" type="text" name="url" onChange={handleOnChange} />
+          <input
+            className="input"
+            type="text"
+            name="url"
+            onChange={handleOnChange}
+          />
 
           <input className="btn" type="submit" value="Create new link" />
         </form>
-
-
 
         <div className={styleLinks.linksContainer}>
           {links?.map((link) => (
             // <div key={link.id}><a href={link.url}>{link.title}</a></div>
             <Link
-              key={link.docId}
+              key={link.id}
               docId={link.docId}
               url={link.url}
               title={link.title}

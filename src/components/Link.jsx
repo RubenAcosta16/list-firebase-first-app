@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 
-import style from './css/link.module.css'
+import style from "./css/link.module.css";
 
 const Link = ({ docId, title, url, onDelete, onUpdate }) => {
   // para saber el dato actual para cambiar
@@ -50,11 +50,14 @@ const Link = ({ docId, title, url, onDelete, onUpdate }) => {
   function handleBlurTitle(e) {
     setEditTitle(false);
     onUpdate(docId, currentTitle, currentUrl);
+
+    console.log(currentTitle)
   }
 
   function handleBlurUrl(e) {
     setEditUrl(false);
     onUpdate(docId, currentTitle, currentUrl);
+    console.log(currentUrl)
   }
 
   function handleDelete() {
@@ -65,50 +68,53 @@ const Link = ({ docId, title, url, onDelete, onUpdate }) => {
   // console.log(docId)
 
   return (
+
     <div className={style.link}>
       <div className={style.linkInfo}>
         <div className={style.linkTitle}>
           {editTitle ? (
             <>
-              {/* el onBlur se ejcuta cuando pierde el focus */}
               <input
                 ref={titleRef}
-                value={currentTitle}
-                onChange={handleChangeTitle}
                 onBlur={handleBlurTitle}
+                onChange={handleChangeTitle}
+                value={currentTitle}
               />
             </>
           ) : (
             <>
-              <button className={style.btnEdit} onClick={handleEditTitle}> <span className="material-icons">edit</span></button>
-
+              <button onClick={handleEditTitle} className={style.btnEdit}>
+                <span className="material-icons">edit</span>
+              </button>
               {currentTitle}
             </>
           )}
         </div>
-
         <div className={style.linkUrl}>
           {editUrl ? (
             <>
               <input
                 ref={urlRef}
-                value={currentUrl}
-                onChange={handleChangeUrl}
                 onBlur={handleBlurUrl}
+                onChange={handleChangeUrl}
+                value={currentUrl}
               />
             </>
           ) : (
             <>
-              <button className={style.btnEdit} onClick={handleEditUrl}> <span className="material-icons">edit</span></button>
+              <button onClick={handleEditUrl} className={style.btnEdit}>
+                <span className="material-icons">edit</span>
+              </button>
               {currentUrl}
             </>
           )}
         </div>
-
       </div>
-        <div className={style.linkActions}>
-          <button className={style.btnDelete} onClick={handleDelete}><span className="material-icons">delete</span></button>
-        </div>
+      <div className={style.linkActions}>
+        <button onClick={handleDelete} className={style.btnDelete}>
+          <span className="material-icons">delete</span>
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 // import style from "./dashboardWrapper.module.css";
-import style from './css/dashBoardWrapper.module.css'
+import style from "./css/dashBoardWrapper.module.css";
 
 export default function dashboardWrapper({ children }) {
   return (
