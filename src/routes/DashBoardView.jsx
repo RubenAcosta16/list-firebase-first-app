@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { v4 as uuidv4 } from "uuid";
@@ -20,6 +20,8 @@ import styleLinks from "../components/css/link.module.css";
 
 const DashBoarfView = () => {
   const navigate = useNavigate();
+  const inputTitle=useRef();
+  const inputUrl=useRef();
 
   const [currentUser, setcurrentUser] = useState({});
   const [state, setState] = useState(0);
@@ -66,6 +68,9 @@ const DashBoarfView = () => {
 
   function handleOnSubmit(e) {
     e.preventDefault();
+
+    inputTitle.current.value=""
+    inputUrl.current.value=""
 
     addLink();
   }
@@ -132,6 +137,7 @@ const DashBoarfView = () => {
         >
           <label htmlFor="title">Title</label>
           <input
+           ref={inputTitle}
             className="input"
             type="text"
             name="title"
@@ -140,6 +146,7 @@ const DashBoarfView = () => {
 
           <label htmlFor="url">Url</label>
           <input
+           ref={inputUrl}
             className="input"
             type="text"
             name="url"
